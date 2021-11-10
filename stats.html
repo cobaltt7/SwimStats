@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SwimStats</title>
+		<link href="style.css" rel="stylesheet" />
+		<script
+			src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.min.js"
+			defer
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"
+			defer
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.0/dist/chartjs-adapter-moment.min.js"
+			defer
+			crossorigin="anonymous"
+		></script>
+		<script src="index.js" defer async type="module"></script>
+		<script>
+			const CHART_DATA = "{{byStroke}}";
+		</script>
+		<style>
+			.gold {
+				background-color: gold;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1 id="title">Stats</h1>
+			<p id="last-updated">Data last updated: <u>{{ lastUpdated }}</u></p>
+		</header>
+		<ul class="tabs">
+			<li class="tab"><a href="/">&lt;- Go Back</a></li>
+			<li class="tab" data-tab="#table-page">
+				<button type="button">Table</button>
+			</li>
+			<li class="tab" data-tab="#graph-page">
+				<button type="button">Graph</button>
+			</li>
+			<li class="tab" data-tab="#other-page">
+				<button type="button">Other stats</button>
+			</li>
+		</ul>
+		<div class="tab-wrapper">
+			<section class="tab-content" id="table-page">
+				<h2>Table</h2>
+				<table id="time-table">
+					<thead>
+						<tr class="timeheaders">
+							<th>Meet</th>
+							<th>Date</th>
+							<th>Place (Points)</th>
+							<th>Event</th>
+							<th>Time</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{ #times }}
+						<tr class="times" id="{{ id }}">
+							<td>{{ meet }}</td>
+							<td>{{ date }}</td>
+							<td>{{ place }}</td>
+							<td>{{ distance }} {{ course }} {{ stroke }}</td>
+							<td>{{ time }} seconds {{ #best }}⭐{{ /best }}</td>
+						</tr>
+						{{ /times }}
+					</tbody>
+				</table>
+				<div class="legend-container">
+					<fieldset class="legend">
+						<legend>Legend:</legend>
+						<table>
+							<tr>
+								<th>Symbol</th>
+								<th>Meaning</th>
+							</tr>
+							<tr>
+								<td>⭐</td>
+								<td>Best time ever for that event.</td>
+							</tr>
+							<tr>
+								<td class="gold"></td>
+								<td>Personal best in that event (at the time).</td>
+							</tr>
+						</table>
+					</fieldset>
+				</div>
+			</section>
+			<section class="tab-content" id="graph-page">
+				<h2>Graph</h2>
+				<div class="graph-container">
+					<canvas role="figure" aria-label="Graph of swimming times" id="graph">
+						<p>
+							Your browser does not support this feature. Please upgrade to a newer
+							browser to view the graph.
+						</p>
+					</canvas>
+				</div>
+			</section>
+			<section class="tab-content" id="other-page">
+				<h2>Other stats</h2>
+			</section>
+		</div>
+	</body>
+</html>

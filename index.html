@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SwimStats</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<form action="">
+			<label>Swimmer ID: <input type="tel" name="member" /></label>
+			<button type="submit" id="generate">Generate stats!</button>
+		</form>
+		<h2>What is my swimmer ID?</h2>
+		<p>
+			Please note that I only have access to one Team Unify site, and I have no idea how much
+			it differs from other Team Unify sites. It might differ a lot, or it might not differ at
+			all. I don't know. So, unforunately, these instructions might not work, depending on how
+			your Team Unify site works.
+		</p>
+		<ol>
+			<li>Go to your team's page on Team Unify.</li>
+			<!--<li>
+				Determine the team identifier (the string of random letters in
+				the URL). Some examples:
+				<ul>
+					<li>
+						<code
+							>https://www.teamunify.com/Home.jsp?team=reczzatst</code
+						>
+						-> <code>reczzatst</code>
+					</li>
+					<li>
+						<code
+							>https://www.teamunify.com/team/illtfst/page/home</code
+						>
+						-> <code>illtfst</code>
+					</li>
+				</ul>
+				Type it into the first box.
+			</li>-->
+			<li>Sign in.</li>
+			<li>Go to your "My account" page.</li>
+			<li>Click on the "Members" tab.</li>
+			<li>
+				Right-click on the swimmer you want to generate statistics for and choose "View
+				image", "Open image in new tab", or the equivalent for your browser.
+			</li>
+			<li>
+				Find the swimmer ID (the series of random numbers typically at the end of the URL).
+				Some examples:
+				<ul>
+					<li>
+						<code
+							>https://www.teamunify.com/rest/ondeck/member/photo/cdn/reczzatst/4305991</code
+						>
+						-> <code>4305991</code>
+					</li>
+				</ul>
+			</li>
+			<li>Click "Generate stats!"</li>
+		</ol>
+	</body>
+</html>

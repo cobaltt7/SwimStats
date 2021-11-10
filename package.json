@@ -1,0 +1,110 @@
+{
+	"name": "swimstats",
+	"version": "0.0.1",
+	"private": true,
+	"description": "Generate statistics for swimming times. Add swim times manually or pull them from Team Unify automatically.",
+	"keywords": ["swimming", "teamunify", "statistics", "graphs", "race"],
+	"bugs": {
+		"email": "paul@reid-family.org"
+	},
+	"license": "MIT",
+	"author": "RedGuy12",
+	"main": "index.js",
+	"scripts": {
+		"lint:eslint": "eslint --ignore-pattern .gitignore --fix .",
+		"lint:prettier": "prettier --ignore-path .gitignore --ignore-path .prettierignore --write .",
+		"start": "node --trace-warnings --harmony index.js",
+		"start:dev": "nodemon --trace-warnings --harmony index.js"
+	},
+	"prettier": {
+		"iniSpaceAroundEquals": true,
+		"printWidth": 100,
+		"proseWrap": "always",
+		"quoteProps": "consistent",
+		"tabWidth": 4,
+		"trailingComma": "all",
+		"useTabs": true,
+		"jsdocDescriptionWithDot": true,
+		"jsdocPrintWidth": 100,
+		"jsdocSeparateReturnsFromParam": true,
+		"jsxBracketSameLine": false,
+		"vueIndentScriptAndStyle": true,
+		"overrides": [
+			{
+				"files": ["**.md", "**/LICENSE"],
+				"options": {
+					"trailingComma": "es5",
+					"proseWrap": "never",
+					"parser": "markdown"
+				}
+			},
+			{
+				"files": ["**.svg", "**.html", "**.xml"],
+				"options": {
+					"trailingComma": "es5",
+					"parser": "html",
+					"jsxBracketSameLine": true
+				}
+			},
+			{
+				"files": ["**.sass", "**.scss", "**.css"],
+				"options": {
+					"parser": "scss"
+				}
+			},
+			{
+				"files": ["**.env", "**.replit", "**/.tx/config"],
+				"options": {
+					"parser": "ini"
+				}
+			},
+			{
+				"files": [
+					"**.code-workspace",
+					".code-snippets",
+					"**/settings.json",
+					"**/launch.json",
+					"**/extensions.json",
+					"**.jsonc",
+					"**.eslintrc",
+					"**.eslintrc.json",
+					"jsconfig.json"
+				],
+				"options": {
+					"parser": "json5"
+				}
+			},
+			{
+				"files": [
+					"**.json",
+					"**.map",
+					"**.jslintrc",
+					"**.all-contributorsrc"
+				],
+				"options": {
+					"parser": "json"
+				}
+			}
+		],
+		"plugins": ["prettier-plugin-jsdoc", "prettier-plugin-ini"]
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.7",
+		"prettier": "^2.3.1",
+		"prettier-plugin-ini": "^0.3.1",
+		"prettier-plugin-jsdoc": "^0.3.23"
+	},
+	"dependencies": {
+		"express": "^4.17.1",
+		"mustache-express": "^1.3.1",
+		"node-fetch": "^2.6.1"
+	},
+	"nodemonConfig": {
+		"verbose": true,
+		"execMap": {
+			"js": "node --trace-warnings --harmony"
+		},
+		"ext": "js,json,html,css"
+	},
+	"browserslist": "> 0%"
+}

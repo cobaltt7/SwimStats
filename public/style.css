@@ -1,0 +1,188 @@
+* {
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+	transition: all 0.25s;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 101vh;
+}
+
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input {
+	margin: 3px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0;
+}
+
+header {
+	padding: 10px;
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 75px;
+	color: #fff;
+	margin: 0;
+	z-index: 100;
+	background-color: #000;
+}
+
+#title {
+	display: inline-block;
+}
+
+#last-updated {
+	font-style: italic;
+	float: right;
+}
+
+.tabs {
+	/** TODO: make a position sticky pollyfill*/
+	position: sticky;
+	top: 75px;
+	display: flex;
+	justify-content: space-around;
+	list-style-type: none;
+	border-bottom: 2px solid black;
+	padding: 10px 10px 0 10px;
+	margin: 0;
+	margin-top: 75px;
+	z-index: 100;
+	background-color: #fff;
+}
+
+.tab {
+	border-radius: 10px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	width: 100%;
+	padding: 0;
+	background-color: #eee;
+}
+
+.tab.active-tab {
+	background-color: #ccc;
+}
+
+.tab * {
+	padding: 10px;
+	display: block;
+	height: 100%;
+	cursor: pointer;
+	border: 0.5px solid #000;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+	width: 100%;
+	text-align: center;
+	font-weight: 700;
+	font-size: 20px;
+	background-color: transparent;
+}
+
+.tab-wrapper {
+	border: 1px solid black;
+	padding: 5px;
+	margin: 0 10px;
+	border-top: none;
+}
+
+.tab-content {
+	display: none;
+	padding-top: 15px;
+}
+
+.tab-content.active-content {
+	display: block;
+}
+
+#time-table {
+	width: 100%;
+}
+
+table th {
+	background-color: #1b4885;
+	color: ghostwhite;
+	border-bottom: black solid 4px;
+}
+
+table td,
+table th {
+	padding: 7.5px;
+}
+
+table tr:nth-child(odd) {
+	background-color: #eee;
+}
+
+table tr:nth-child(even) {
+	background-color: #fff;
+}
+
+.legend-container {
+	width: fit-content;
+	position: sticky;
+	bottom: 5px;
+	background: white;
+}
+
+.legend {
+	margin-top: 2.5em;
+}
+
+.legend table {
+	min-width: 65vw;
+}
+
+.graph-container {
+	width: 100%;
+	height: calc(100vh - 218px);
+	position: relative;
+	transition: all 0.25s, height 0s, width 0s;
+}
+
+#graph {
+	transition: all 0.25s, height 0s, width 0s;
+}
+
+body.no-head header {
+	top: -100px;
+}
+
+body.no-head .tabs {
+	top: 0;
+	padding-top: 5px;
+	width: 100%;
+	margin: 0;
+}
+
+body.no-head .legend-container {
+	bottom: -32px;
+}
+
+body.no-head .tab-wrapper {
+	transform: translateY(-37.5px);
+}
+
+.tab:hover {
+	background-color: #aaa;
+}
+
+:focus-visible {
+	outline: blue auto 5px;
+}
