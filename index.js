@@ -23,7 +23,7 @@ const generateID = (len = 1, blacklist = []) => {
 	return blacklist.includes(id) ? generateID(len + 1, blacklist) : id;
 };
 
-app.get("/", async (req, res) => {
+app.use(async (req, res) => {
 	if (!req.query.member) {
 		return res.sendFile(path.resolve(__dirname, "index.html"));
 	}
@@ -38,7 +38,7 @@ app.get("/", async (req, res) => {
 	parsed_results.lastUpdated = new Date(results.result.cache_dt_modified).toString();
 	parsed_results.times = [];
 	const IDS = [];
-	results.result.splashes.forEach((res, index) => {
+	results.result.splashes.forEach((res) => {
 		let id = generateID(1, IDS);
 
 		IDS.push(id);
@@ -113,7 +113,7 @@ app.get("/", async (req, res) => {
 			Time: time.time,
 			_date: time.date.valueOf(),
 			_time:
-				(50 / // todo: this is xx in the title
+				(25 / // todo: this is xx in the title
 					(time.distance * (time.course == "Meters" ? 1.09361 : 1))) *
 				time.time,
 		}),

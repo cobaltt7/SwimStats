@@ -47,7 +47,7 @@
 						tooltipFormat: "day",
 						minUnit: "day",
 						unit: "day",
-						displayFormats: { day: "D MMM YY" },
+						displayFormats: { day: "DD MMM YY" },
 					},
 					suggestedMax: new Date().valueOf(),
 					title: { display: true, text: "Date" },
@@ -61,7 +61,7 @@
 					min: 0,
 					title: {
 						display: true,
-						text: "Seconds per xx yards", // TODO
+						text: "Seconds per 25 yards", // TODO
 					},
 				},
 			},
